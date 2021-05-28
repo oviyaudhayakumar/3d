@@ -9,10 +9,8 @@
         @import url(https://fonts.googleapis.com/css?family=Montserrat:500);
 
 :root {
-	/* Base font size */
 	font-size: 10px;
 
-	/* Border color variable */
 	--border-color: #e70;
 }
 
@@ -82,7 +80,6 @@ h2 {
 	border: 0.2rem solid var(--border-color);
 }
 
-/* Transform images to create cube */
 
 .image-1 {
 	transform: translateZ(15rem);
@@ -108,7 +105,6 @@ h2 {
 	transform: rotateX(-90deg) translateZ(15rem);
 }
 
-/* Transform cube to show correct image */
 
 .cube.initial-position {
 	transform: translateZ(-15rem) translateY(-2rem) rotateX(-15deg) rotateY(18deg) rotateZ(2deg);
@@ -187,22 +183,17 @@ h2 {
 		  imageButtons = document.querySelector(".image-buttons");
 	let cubeImageClass = cube.classList[1];
 
-	//Add click event listener to image buttons container
 	imageButtons.addEventListener("click", e => {
 		
-		//Get node type and class value of clicked element
 		const targetNode = e.target.nodeName,
 			  targetClass = e.target.className;
 
-		//Check if image input has been clicked and isn't the currently shown image
 		if (targetNode === "INPUT" && targetClass !== cubeImageClass) {
 			
 			console.log(`Show Image: ${targetClass.charAt(11)}`);
 
-			//Replace previous cube image class with new class
 			cube.classList.replace(cubeImageClass, targetClass);
 
-			//Update cube image class variable with new class
 			cubeImageClass = targetClass;	
 			
 		}
